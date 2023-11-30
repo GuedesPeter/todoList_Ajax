@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'todos', 
+    'todos.apps.TodosConfig', # APP Criado (Foi passado o caminho completo do app: Nome + apps.py + Nome da Classe)
 ]
 
 MIDDLEWARE = [
