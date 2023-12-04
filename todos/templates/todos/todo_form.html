@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block page_title %}
+  ToDo - Nova Tarefa
+{% endblock page_title %}
+
+{% block content %}
+  <h1>Nova Tarefa</h1>
+
+  <!--Formulario criado a partir da classe TodoCreateView-->
+  <!--{{ form }}-->
+
+  <form method="POST">
+    {% csrf_token %}
+
+    {{ form|crispy }}
+
+    <button type="submit" class="btn btn-primary">Criar</button>
+    <a href="{% url 'todo_list' %}" class="btn btn-outline-warning">Voltar</a>
+  </form>
+
+{% endblock content %}
+       
+        
+        
+    
