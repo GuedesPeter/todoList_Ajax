@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy # Retorna as rotas de urls completas
 from .models import Todo
 # Utilizando o CBV - Class Basic View e importando classes genéricas para criar as Views
-from django.views.generic import ListView, CreateView # Importa uma classe genérica
+from django.views.generic import ListView, CreateView, UpdateView # Importa uma classe genérica
 
 '''
 Essa função é traduzida/equivalente a classe abaixo!!!
@@ -17,6 +17,13 @@ class TodoListView(ListView):
 
 
 class TodoCreateView(CreateView):
+    model = Todo
+    #Definir os campos que o usuário informará no cadastro
+    fields = ['title', 'deadline']
+    success_url = reverse_lazy('todo_list')
+
+
+class TodoUpdateView(UpdateView):
     model = Todo
     #Definir os campos que o usuário informará no cadastro
     fields = ['title', 'deadline']
